@@ -15,39 +15,35 @@ class DepartmentSeeder extends Seeder
     public function run(): void
     {
         Department::insert([
-            'department_name' => 'Alimentacion',
+            'department_name' => 'Administration',
             // 'department_email' => Str::random(10).'@gmail.com',
         ]);
 
         Department::insert([
-            'department_name' => 'Higiene',
+            'department_name' => 'Project',
             // 'department_email' => Str::random(10).'@gmail.com',
         ]);
 
         Department::insert([
-            'department_name' => 'Carniceria',
+            'department_name' => 'Sales Department',
             'department_parent_id' => 1,
         ]);
 
         Department::insert([
-            'department_name' => 'Charcuteria',
-            'department_parent_id' => 3,
-        ]);
-
-        Department::insert([
-            'department_name' => 'Pescaderia',
-            'department_parent_id' => 1,
-        ]);
-
-        Department::insert([
-            'department_name' => 'Fruteria',
-            'department_parent_id' => 1,
-        ]);
-
-
-        Department::insert([
-            'department_name' => 'Peluqueria',
+            'department_name' => 'Product Development',
             'department_parent_id' => 2,
         ]);
+    
+        Department::insert([
+            'department_name' => 'Design',
+            'department_parent_id' => 4,
+        ]);
+
+        Department::insert([
+            'department_name' => 'Operations',
+            'department_parent_id' => 1,
+        ]);
+
     }
+
 }

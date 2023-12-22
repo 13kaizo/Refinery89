@@ -15,21 +15,6 @@ class DepartmentController extends Controller
     public function index()
     {
         $departments=Department::get();
-        // $d = [];
-
-        // foreach ($departments as $department) 
-        // {
-        //     $a['id'] = $department['id'];
-        //     $a['text'] = $department['department_name'];
-
-        //     $department['text'] = $department['department_name'];
-        //     $a['state']['selected']=true;
-        //     $a['state']['opened'] = true;
-        //     $a['children'] = $this->department_children($department->department_id);
-
-        //     array_push($d, $a);
-        // }
-
         $data['departments']=$departments;
         return view('departments',$data);
     }
@@ -40,7 +25,6 @@ class DepartmentController extends Controller
             
             $records =Department::orderBy('department_id','asc');
 
-
             $draw = $request->get('draw');
             $start = $request->get("start");
             $rowperpage = $request->get("length");
@@ -48,7 +32,6 @@ class DepartmentController extends Controller
                 $searchValue = $request->get('search')['value'];
                 if (strlen($searchValue) > 2) $records = $records->where('department_name', $searchValue);
             }
-
 
             $totalRecords = $records->count();
             $totalRecordswithFilter = $records->count();

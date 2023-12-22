@@ -50,10 +50,8 @@ class UserController extends Controller
             $id_user=Crypt::decryptString($id);
             $departments_id = User::select('departments_user.department_id')->join('departments_user', 'departments_user.user_id', '=', 'users.user_id')->where('users.user_id',$id_user)->get();
             $ids=array();
-            foreach($departments_id as $department_id)
-            {
-                array_push($ids,$department_id['department_id']);
-            }
+            foreach($departments_id as $department_id) array_push($ids,$department_id['department_id']);
+            
 
             $draw = $request->get('draw');
             $start = $request->get("start");
